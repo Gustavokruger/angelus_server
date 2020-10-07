@@ -44,11 +44,9 @@ const animal = new mongoose.Schema({
     required: [true, "O campo descrição é obrigatório"],
   },
 
-  status: {
-    type: String,
-    required: [true, "O campo do status é obrigatório"],
-    uppercase: true,
-    enum: ["PARA ADOÇÃO", "ADOTADO"],
+  adotado: {
+    type: Boolean,
+    default: false
   },
 
 
