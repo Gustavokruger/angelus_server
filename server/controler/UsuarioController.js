@@ -35,6 +35,11 @@ class UsuarioController {
         }
     }
 
+    async qusuario(req, res){
+        var result = await (await usuario.count());
+        res.status(200).json(result);
+    }
+
     async listar(req, res){
         var result = await usuario.find({});
         res.status(200).json(result);

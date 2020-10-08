@@ -17,6 +17,7 @@ router.get('/usuario/buscar/:cpf', usuario.buscar);
 router.get('/usuario/listar', usuario.listar);
 router.put('/usuario/alterar', usuario.alterar);
 router.delete('/usuario/remover/:cpf', usuario.deletar);
+router.get('/usuario/qusuario/', usuario.qusuario);
 
 const animal = require("../controler/AnimalController");
 
