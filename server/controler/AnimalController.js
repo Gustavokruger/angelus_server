@@ -56,6 +56,11 @@ class AnimalController {
         res.status(200).json(result);
     }
 
+    async qanimal(req, res){
+        var result = await (await animal.count({"adotado": req.params.adotado}));
+        res.status(200).json(result);
+    }
+
     async alterar(req, res){
         try {
             var result = await animal.updateOne({
