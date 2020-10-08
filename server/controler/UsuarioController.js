@@ -36,7 +36,7 @@ class UsuarioController {
     }
 
     async qusuario(req, res){
-        var result = await (await usuario.count());
+        var result = await usuario.count();
         res.status(200).json(result);
     }
 
