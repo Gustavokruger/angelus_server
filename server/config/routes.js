@@ -29,4 +29,14 @@ router.delete('/animal/remover/:id', animal.deletar);
 router.get('/animal/exibeadotar/:adotado', animal.exibeadotar);
 router.get('/animal/qanimal/:adotado', animal.qanimal);
 
+const post = require("../controler/PostController.js");
+
+router.post("/post/cadastrar", post.cadastrar);
+router.get("/post/buscar/usuario/:usuarioId", post.buscarByUsuario);
+router.get("/post/buscar/animal/:animalId", post.buscarByAnimal);
+router.get("/post/buscar/:id", post.buscar);
+router.get("/post/listar", post.listar);
+router.put("/post/alterar/:id", post.alterar);
+router.delete("/post/remover/:id", post.deletar);
+
 module.exports = router;
