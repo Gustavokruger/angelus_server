@@ -39,7 +39,7 @@ class AnimalController {
     async exibeadotar(req, res){
         var result = await animal.find({
             "adotado": req.params.adotado
-        }).populate('usuario');
+        }).sort({criadoEm: -1}).populate('usuario');
         if(result){
             res.status(200).json(result);
         }else{
@@ -49,8 +49,10 @@ class AnimalController {
         }
     }
 
+
+
     async listar(req, res){
-        var result = await animal.find().populate('usuario');
+        var result = await animal.find().sort({criadoEm: -1}).populate('usuario');
         res.status(200).json(result);
     }
 
