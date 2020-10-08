@@ -35,6 +35,19 @@ class AnimalController {
         }
     }
 
+    async exibeadotar(req, res){
+        var result = await animal.find({
+            "adotado": req.params.adotado
+        });
+        if(result){
+            res.status(200).json(result);
+        }else{
+            res.status(200).json({
+                'mensagem': 'Situação não encontrada'
+            });
+        }
+    }
+
     async listar(req, res){
         var result = await animal.find({});
         res.status(200).json(result);
