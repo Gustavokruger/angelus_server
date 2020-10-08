@@ -25,5 +25,6 @@ router.get('/animal/buscar/:id', animal.buscar);
 router.get('/animal/listar', animal.listar);
 router.put('/animal/alterar', animal.alterar);
 router.delete('/animal/remover/:id', animal.deletar);
+router.get('/animal/exibeadotar/:adotado', animal.exibeadotar);
 
 module.exports = router;
