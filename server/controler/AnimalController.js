@@ -1,4 +1,5 @@
 const animal = require('../models/AnimalSchema');
+const UsuarioSchema = require('../models/UsuarioSchema');
 
 class AnimalController {    
 
@@ -16,7 +17,7 @@ class AnimalController {
                 var result = await animal.create(req.body);
                 res.status(201).json(result);
             }
-
+ 
         } catch (error) {
             res.status(500).json(error);
         }
@@ -38,7 +39,7 @@ class AnimalController {
     async exibeadotar(req, res){
         var result = await animal.find({
             "adotado": req.params.adotado
-        });
+        }).populate('usuario');
         if(result){
             res.status(200).json(result);
         }else{
@@ -49,7 +50,7 @@ class AnimalController {
     }
 
     async listar(req, res){
-        var result = await animal.find({});
+        var result = await animal.find().populate('usuario');
         res.status(200).json(result);
     }
 

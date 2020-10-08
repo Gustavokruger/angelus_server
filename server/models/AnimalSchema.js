@@ -8,6 +8,12 @@ const animal = new mongoose.Schema({
     required: [true, "O campo id é obrigatório"],
   },
 
+  usuario: {
+    type: mongoose.ObjectId,
+    ref: 'Usuario',
+    required: [true, "O campo Usuário é obrigatório"],
+  },
+
   tipo: {
     type: String,
     required: [true, "O campo do tipo do animal é obrigatório"],
