@@ -3,6 +3,15 @@ const router = express.Router();
 
 const usuario = require("../controler/UsuarioController");
 
+router.use((req, res) => {
+    console.log({
+        url: req.url,
+        method: req.method
+    });
+
+    req.next();
+});
+
 router.post('/usuario/cadastrar', usuario.cadastrar);
 router.get('/usuario/buscar/:cpf', usuario.buscar);
 router.get('/usuario/listar', usuario.listar);
