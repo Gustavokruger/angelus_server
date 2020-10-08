@@ -38,7 +38,8 @@ class AnimalController {
     async exibeadotar(req, res){
         var result = await animal.find({
             "adotado": req.params.adotado
-        });
+        }).sort({criadoEm: -1});
+        
         if(result){
             res.status(200).json(result);
         }else{
