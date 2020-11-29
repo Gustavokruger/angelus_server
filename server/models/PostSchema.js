@@ -19,6 +19,10 @@ const post = new mongoose.Schema({
     ref: "Animais",
     require: [true, "O campo animal é obrigatório"],
   }],
+  criadoEm: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 module.exports = mongoose.model("Posts", post);
