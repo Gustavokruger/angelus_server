@@ -13,6 +13,7 @@ router.use((req, res) => {
 });
 
 router.post('/usuario/cadastrar', usuario.cadastrar);
+router.post('/usuario/logar', usuario.logar);
 router.get('/usuario/buscar/:cpf', usuario.buscar);
 router.get('/usuario/listar', usuario.listar);
 router.put('/usuario/alterar', usuario.alterar);

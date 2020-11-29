@@ -22,6 +22,20 @@ class UsuarioController {
         }
     }
 
+    async logar(req, res) {
+        var result = await usuario.findOne({
+            "nome": req.body.nome,
+            "senha": req.body.senha,
+        });
+        if (result) {
+            res.status(200).json(result);
+        } else {
+            res.status(403).json({
+                'mensagem': 'Usuário ou senha inválida'
+            });
+        }
+    }
+
     async buscar(req, res) {
         var result = await usuario.findOne({
             "cpf": req.params.cpf
