@@ -49,10 +49,10 @@ class AnimalController {
         }
     }
 
-
-
     async listar(req, res) {
-        var result = await animal.find().sort({ criadoEm: -1 }).populate('usuario');
+        var result = await animal.find({
+            "usuario": { "_id": req.params.idusuario }
+        }).sort({ criadoEm: -1 }).populate('usuario');
         res.status(200).json(result);
     }
 
