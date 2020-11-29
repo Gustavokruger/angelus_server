@@ -7,11 +7,12 @@ const usuario = new mongoose.Schema({
     type: String,
     required: [true, "O campo nome é obrigatório"],
   },
+
   cpf: {
     type: String,
     required: [true, "O campo cpf é obrigatório"],
   },
-  
+
   endereco: {
     type: String,
     required: [true, "O campo endereco é obrigatório"],
@@ -25,6 +26,11 @@ const usuario = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "O campo email é obrigatório"],
+  },
+
+  senha: {
+    type: String,
+    required: [true, "O campo senha é obrigatório"],
   },
 
   criadoEm: {

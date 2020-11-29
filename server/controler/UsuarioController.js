@@ -10,7 +10,7 @@ class UsuarioController {
             });
             if (result) {
                 res.status(500).json({
-                    'mensagem': 'cpf já cadastrado'
+                    'mensagem': 'CPF já cadastrado'
                 });
             } else {
                 var result = await usuario.create(req.body);

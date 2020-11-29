@@ -5,7 +5,7 @@ class PostController {
   async cadastrar(req, res) {
     try {
       var result = await post.create(req.body);
-      res.status(201).json(result);
+      res.status(200).json(result);
     } catch (error) {
       res.status(500).json(error);
     }
@@ -18,7 +18,7 @@ class PostController {
     if (result) {
       res.status(200).json(result);
     } else {
-      res.status(200).json({
+      res.status(500).json({
         mensagem: "Post não encontrado",
       });
     }
@@ -31,7 +31,7 @@ class PostController {
     if (result) {
       res.status(200).json(result);
     } else {
-      res.status(200).json({
+      res.status(500).json({
         mensagem: "Post não encontrado",
       });
     }
@@ -44,7 +44,7 @@ class PostController {
     if (result) {
       res.status(200).json(result);
     } else {
-      res.status(200).json({
+      res.status(500).json({
         mensagem: "Post não encontrado",
       });
     }
@@ -58,7 +58,7 @@ class PostController {
   async alterar(req, res) {
     try {
       var result = await post.updateOne({ _id: req.params.id }, req.body);
-      res.status(201).json(result);
+      res.status(200).json(result);
     } catch (error) {
       res.status(500).json(error);
     }
@@ -67,7 +67,7 @@ class PostController {
   async deletar(req, res) {
     try {
       var result = await post.deleteOne({ _id: req.params.id });
-      res.status(201).json(result);
+      res.status(200).json(result);
     } catch (error) {
       res.status(500).json(error);
     }

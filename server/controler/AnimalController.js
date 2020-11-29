@@ -1,49 +1,49 @@
 const animal = require('../models/AnimalSchema');
 const UsuarioSchema = require('../models/UsuarioSchema');
 
-class AnimalController {    
+class AnimalController {
 
-    async cadastrar(req, res){
+    async cadastrar(req, res) {
         try {
-            
+
             var result = await animal.findOne({
                 "id": req.body.id
             });
-            if(result){
-                res.status(200).json({
+            if (result) {
+                res.status(500).json({
                     'mensagem': 'id já cadastrado'
                 });
-            }else{
+            } else {
                 var result = await animal.create(req.body);
-                res.status(201).json(result);
+                res.status(200).json(result);
             }
- 
+
         } catch (error) {
             res.status(500).json(error);
         }
     }
- 
-    async buscar(req, res){
+
+    async buscar(req, res) {
         var result = await animal.findOne({
             "id": req.params.id
         });
-        if(result){
+        if (result) {
             res.status(200).json(result);
-        }else{
-            res.status(200).json({
+        } else {
+            res.status(500).json({
                 'mensagem': 'Animal não encontrado'
             });
         }
     }
 
-    async exibeadotar(req, res){
+    async exibeadotar(req, res) {
         var result = await animal.find({
             "adotado": req.params.adotado
-        }).sort({criadoEm: -1}).populate('usuario');
-        if(result){
+        }).sort({ criadoEm: -1 }).populate('usuario');
+        if (result) {
             res.status(200).json(result);
-        }else{
-            res.status(200).json({
+        } else {
+            res.status(500).json({
                 'mensagem': 'Situação não encontrada'
             });
         }
@@ -51,17 +51,17 @@ class AnimalController {
 
 
 
-    async listar(req, res){
-        var result = await animal.find().sort({criadoEm: -1}).populate('usuario');
+    async listar(req, res) {
+        var result = await animal.find().sort({ criadoEm: -1 }).populate('usuario');
         res.status(200).json(result);
     }
 
-    async qanimal(req, res){
-        var result = await (await animal.count({"adotado": req.params.adotado}));
+    async qanimal(req, res) {
+        var result = await (await animal.count({ "adotado": req.params.adotado }));
         res.status(200).json(result);
     }
 
-    async alterar(req, res){
+    async alterar(req, res) {
         try {
             var result = await animal.updateOne({
                 "id": req.body.id,
@@ -80,7 +80,7 @@ class AnimalController {
         }
     }
 
-    async deletar(req, res){
+    async deletar(req, res) {
         try {
             var result = await animal.deleteOne({
                 "id": req.params.id
