@@ -14,10 +14,14 @@ const post = new mongoose.Schema({
     ref: "Usuarios",
     require: [true, "O campo usuario é obrigatório"],
   },
-  animal: {
+  animais: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Animais",
     require: [true, "O campo animal é obrigatório"],
+  }],
+  criadoEm: {
+    type: Date,
+    default: Date.now
   },
 });
 

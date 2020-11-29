@@ -50,6 +50,19 @@ class PostController {
     }
   }
 
+  async popularAnimaisOfPost(req, res) {
+    var result = await post.findById({
+      _id: req.params.postId,
+    }).populate("animais");
+    if (result) {
+      res.status(200).json(result);
+    } else {
+      res.status(500).json({
+        mensagem: "Post não encontrado",
+      });
+    }
+  }
+
   async listar(req, res) {
     var result = await post.find({});
     res.status(200).json(result);
