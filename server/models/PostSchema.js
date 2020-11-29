@@ -6,9 +6,6 @@ const post = new mongoose.Schema({
     type: String,
     required: [true, "O campo descricao é obrigatório"],
   },
-  fotos: {
-    type: [String],
-  },
   usuario: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Usuarios",
