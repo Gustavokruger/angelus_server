@@ -34,6 +34,7 @@ const post = require("../controler/PostController.js");
 router.post("/post/cadastrar", post.cadastrar);
 router.get("/post/buscar/usuario/:usuarioId", post.buscarByUsuario);
 router.get("/post/buscar/animal/:animalId", post.buscarByAnimal);
+router.get("/post/popular/animal/:postId", post.popularAnimaisOfPost);
 router.get("/post/buscar/:id", post.buscar);
 router.get("/post/listar", post.listar);
 router.put("/post/alterar/:id", post.alterar);
