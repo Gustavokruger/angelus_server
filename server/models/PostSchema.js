@@ -8,7 +8,7 @@ const post = new mongoose.Schema({
   },
   usuario: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuarios",
+    ref: "Usuario",
     require: [true, "O campo usuario é obrigatório"],
   },
   animais: [{

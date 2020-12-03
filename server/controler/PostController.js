@@ -64,7 +64,7 @@ class PostController {
   }
 
   async listar(req, res) {
-    var result = await post.find({}).populate("animais");
+    var result = await post.find({}).populate("usuario").populate("animais");
     res.status(200).json(result);
   }
 
