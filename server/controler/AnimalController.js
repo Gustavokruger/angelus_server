@@ -72,7 +72,7 @@ class AnimalController {
                 "porte": req.body.porte,
                 "sexo": req.body.sexo,
                 "descricao": req.body.descricao,
-                "status": req.body.status
+                "adotado": req.body.adotado
             });
             res.status(201).json(result);
         } catch (error) {
